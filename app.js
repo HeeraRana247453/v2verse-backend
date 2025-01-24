@@ -15,7 +15,7 @@ app.use(cors({
 app.use(express.json({ limit: "10mb" }));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
-app.use("/", express.static("uploads"));//to make the 'uploads' folder accessible globally
+// app.use("/", express.static("uploads"));//to make the 'uploads' folder accessible globally
 
 
 const user = require("./controller/user/user");

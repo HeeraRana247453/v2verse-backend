@@ -9,7 +9,7 @@ const handleLogoutShop = catchAsyncErrors(async (req, res, next) => {
         sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",// Use 'None' for production, 'Lax' for development,
         secure: process.env.NODE_ENV === "production",
       });
-      res.status(201).json({
+      res.status(200).json({
         success: true,
         message: "Log out successful!",
       });
