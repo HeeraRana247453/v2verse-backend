@@ -30,16 +30,21 @@ const message = require("./controller/message.js");
 const withdraw = require("./controller/withdraw/withdraw.js");
 
 // ROUTES
-app.use("/user",user);
-app.use("/conversation", conversation);
-app.use("/message", message);
-app.use("/order", order);
-app.use("/shop",shop);
-app.use("/product",product);
-app.use("/event",event);
-app.use("/coupon",coupon);
-app.use("/payment", payment);
-app.use("/withdraw", withdraw);
+app.get("/", (req, res) => {
+    res.send("Backend is running!");
+  });
+  
+app.use("/api/user", user);
+app.use("/api/conversation", conversation);
+app.use("/api/message", message);
+app.use("/api/order", order);
+app.use("/api/shop", shop);
+app.use("/api/product", product);
+app.use("/api/event", event);
+app.use("/api/coupon", coupon);
+app.use("/api/payment", payment);
+app.use("/api/withdraw", withdraw);
+
 
 // it's for ErrorHandling
 app.use(ErrorHandler);
