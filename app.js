@@ -4,7 +4,8 @@ const ErrorHandler = require("./middleware/error");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-require("dotenv").config({path:"./config/.env"});///////////
+
+// require("dotenv").config({path:"./config/.env"});///////////
 
 app.use(cors({
     origin:process.env.FRONTEND_SERVER,
@@ -15,12 +16,6 @@ app.use(express.json({ limit: "10mb" }));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
 app.use("/", express.static("uploads"));//to make the 'uploads' folder accessible globally
-
-// config
-if(process.env.NODE_ENV !== "PRODUCTION"){
-    require("dotenv").config({path:"./config/.env"});
-}
-
 
 
 const user = require("./controller/user/user");
