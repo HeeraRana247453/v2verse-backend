@@ -30,11 +30,22 @@ const order = require("./controller/order/order.js");
 const conversation = require("./controller/conversation/conversation.js");
 const message = require("./controller/message.js");
 const withdraw = require("./controller/withdraw/withdraw.js");
+const Product = require("./model/product.js");
 
 // ROUTES
-app.get("/", (req, res) => {
-    res.send(`Backend is running! and frontend server:- ${process.env.FRONTEND_SERVER} databaseIs: ${process.env.DB_URL}`);
+app.get("/test", (req, res) => {
+    res.send(`Backend is running! and frontend server:- ${process.env.FRONTEND_SERVER}\n databaseIs: ${process.env.DB_URL}`);
   });
+
+app.get("/api/debug/db", async (req, res) => {
+    try {
+        const count = await Product.countDocuments(); // Query the database
+        res.status(200).send(`Database connected. Product count: ${count}`);
+    } catch (error) {
+        console.error("Database connection error:", error);
+        res.status(500).send(`Database not connected: ${error.message}`);
+    }
+});
   
 app.use("/api/v2/user", user);
 app.use("/api/v2/conversation", conversation);
