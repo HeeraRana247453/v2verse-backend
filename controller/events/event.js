@@ -19,7 +19,7 @@ router.get("/get-all-events",handleGetAllEvents);
 router.get("/get-all-events/:id", handleGetAllEventsShop);
 
 // delete event of a shop
-router.delete("/delete-shop-event/:id",isSeller, handleDeleteEvent);
+router.delete("/delete-shop-event/:id", handleDeleteEvent);
 
 // all events --- for admin
 router.get("/admin-all-events", isAuthenticated, isAdmin("Admin"), handleAdminGetAllEvents);
