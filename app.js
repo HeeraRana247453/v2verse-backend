@@ -11,8 +11,8 @@ app.use(
     cors({
       origin:["https://v2verse.vercel.app"], // Replace with your frontend URL
       credentials: true, // Allows cookies to be sent with the request
-      // methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
-      // allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+      methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+      allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
     })
   );
 
