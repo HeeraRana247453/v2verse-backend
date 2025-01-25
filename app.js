@@ -5,10 +5,15 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-require("dotenv").config({path:"./config/.env"});///////////
+// require("dotenv").config({path:"./config/.env"});///////////
 
 app.use(
-    cors({})
+    cors({
+      origin: process.env.FRONTEND_SERVER, // Replace with your frontend URL
+      credentials: true, // Allows cookies to be sent with the request
+      methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+      allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+    })
   );
 
 app.use(express.json({ limit: "10mb" }));
@@ -33,16 +38,16 @@ app.get("/", (req, res) => {
     res.send(`Backend is running! and frontend server:- ${process.env.FRONTEND_SERVER} databaseIs: ${process.env.DB_URL}`);
   });
   
-app.use("/api/user", user);
-app.use("/api/conversation", conversation);
-app.use("/api/message", message);
-app.use("/api/order", order);
-app.use("/api/shop", shop);
-app.use("/api/product", product);
-app.use("/api/event", event);
-app.use("/api/coupon", coupon);
-app.use("/api/payment", payment);
-app.use("/api/withdraw", withdraw);
+app.use("/api/v2/user", user);
+app.use("/api/v2/conversation", conversation);
+app.use("/api/v2/message", message);
+app.use("/api/v2/order", order);
+app.use("/api/v2/shop", shop);
+app.use("/api/v2/product", product);
+app.use("/api/v2/event", event);
+app.use("/api/v2/coupon", coupon);
+app.use("/api/v2/payment", payment);
+app.use("/api/v2/withdraw", withdraw);
 
 
 // it's for ErrorHandling
