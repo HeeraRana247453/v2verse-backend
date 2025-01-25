@@ -1,4 +1,4 @@
-const app = require("./app");
+const app = require(".");
 const connectDatabase = require("./db/database");
 
 // config
