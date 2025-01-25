@@ -5,7 +5,7 @@ const ErrorHandler = require("../../utils/ErrorHandler");
 
 const handleGetAllProducts = catchAsyncErrors(async (req, res, next) => {
     try {
-      res.send("making request to database");
+      // res.send("making request to database");
       const products = await Product.find().sort({ createdAt: -1 });
 
       res.send(`These are products:-- ${products}`);
