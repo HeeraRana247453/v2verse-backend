@@ -9,18 +9,16 @@ const cors = require("cors");
 
 app.use(
     cors({
-      origin: process.env.FRONTEND_SERVER, // Replace with your frontend URL
+      origin:["https://v2verse.vercel.app"], // Replace with your frontend URL
       credentials: true, // Allows cookies to be sent with the request
-      methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
-      allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
+      // methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
+      // allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
     })
   );
 
 app.use(express.json({ limit: "10mb" }));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ limit: "10mb", extended: true }));
-// app.use("/", express.static("uploads"));//to make the 'uploads' folder accessible globally
-
 
 const user = require("./controller/user/user.js");
 const shop = require("./controller/shop/shop.js");
