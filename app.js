@@ -5,7 +5,9 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-// require("dotenv").config({path:"./config/.env"});///////////
+if(process.env.NODE_ENV !== "production"){
+  require("dotenv").config({path:"./config/.env"});
+}
 
 app.use(
     cors({
@@ -30,7 +32,6 @@ const order = require("./controller/order/order.js");
 const conversation = require("./controller/conversation/conversation.js");
 const message = require("./controller/message.js");
 const withdraw = require("./controller/withdraw/withdraw.js");
-const Product = require("./model/product.js");
 
 // ROUTES
 
