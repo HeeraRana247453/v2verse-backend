@@ -8,12 +8,7 @@ const cors = require("cors");
 require("dotenv").config({path:"./config/.env"});///////////
 
 app.use(
-    cors({
-      origin: process.env.FRONTEND_SERVER, // Replace with your frontend URL
-      credentials: true, // Allows cookies to be sent with the request
-      methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
-      allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
-    })
+    cors({})
   );
 
 app.use(express.json({ limit: "10mb" }));
