@@ -8,7 +8,8 @@ const cors = require("cors");
 // require("dotenv").config({path:"./config/.env"});///////////
 
 app.use(cors({
-    origin:"https://v2verse.vercel.app",
+    origin:process.env.FRONTEND_SERVER,
+    methods:["GET","POST","PUT","PATCH","DELETE"], //Allow methods
     credentials:true,
 }));
 
