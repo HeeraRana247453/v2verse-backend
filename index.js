@@ -31,7 +31,7 @@ const withdraw = require("./controller/withdraw/withdraw.js");
 
 // ROUTES
 app.get("/", (req, res) => {
-    res.send("Backend is running!",process.env.FRONTEND_SERVER);
+    res.send(`Backend is running! and frontend server:- ${process.env.FRONTEND_SERVER}`);
   });
   
 app.use("/api/user", user);
