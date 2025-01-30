@@ -6,7 +6,7 @@ const ErrorHandler = require("../../utils/ErrorHandler");
 const handleLogoutUser = catchAsyncErrors(async(req,res,next)=>{
     try{
         res.cookie("token",null,{
-            expires:new Date(Date.now()),
+            expires:new Date(Date.now(0)),
             httpOnly: true
         });
         res.status(201).json({
