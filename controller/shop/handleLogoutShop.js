@@ -4,10 +4,11 @@ const ErrorHandler = require("../../utils/ErrorHandler");
 const handleLogoutShop = catchAsyncErrors(async (req, res, next) => {
     try {
       res.cookie("seller_token", null, {
-        expires: new Date(Date.now()),
+        expires: new Date(0),
         httpOnly: true,
         sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",// Use 'None' for production, 'Lax' for development,
         secure: process.env.NODE_ENV === "production",
+        // path: "/",  
       });
       res.status(200).json({
         success: true,
