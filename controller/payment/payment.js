@@ -22,7 +22,7 @@ router.post("/process", catchAsyncErrors(async (req, res, next) => {
 
     try {
         const rzpCreatedOrder = await instance.orders.create(options);
-        res.status(200).json({ success: true, rzpCreatedOrder });
+        res.status(200).json({ success: true, key_id: process.env.RAZORPAY_KEY_ID,rzpCreatedOrder });
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
