@@ -10,6 +10,7 @@ const handleLogoutShop = catchAsyncErrors(async (req, res, next) => {
         secure: process.env.NODE_ENV === "production",
         path: "/", 
       });
+      res.setHeader("Cache-Control", "no-store"); // avoid cached GETs
       res.status(200).json({
         success: true,
         message: "Log out successful!",
