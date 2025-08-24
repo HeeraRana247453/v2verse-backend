@@ -8,7 +8,7 @@ const handleLogoutShop = catchAsyncErrors(async (req, res, next) => {
         httpOnly: true,
         sameSite: process.env.NODE_ENV === "production" ? "None" : "Lax",// Use 'None' for production, 'Lax' for development,
         secure: process.env.NODE_ENV === "production",
-        // path: "/",  
+        path: "/", 
       });
       res.status(200).json({
         success: true,
